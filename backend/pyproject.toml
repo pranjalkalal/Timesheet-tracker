@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "timesheet-tracker"
+version = "1.0.0"
+description = "A simple timesheet tracking application for DevSecOps demo"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "DevSecOps Demo", email = "demo@example.com"}
+]
+
+dependencies = [
+    "fastapi==0.104.1",
+    "uvicorn[standard]==0.24.0",
+    "sqlmodel==0.0.14",
+    "pydantic[email]==2.5.0",
+    "pydantic-settings==2.1.0",
+    "bcrypt==4.1.1",
+    "passlib==1.7.4",
+    "python-jose[cryptography]==3.3.0",
+    "pyjwt==2.8.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==7.4.3",
+    "pytest-asyncio==0.21.1",
+    "httpx==0.25.2",
+    "ruff==0.1.8",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.setuptools]
+packages = ["app"]
