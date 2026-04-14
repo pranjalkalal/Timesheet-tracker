@@ -1,2 +1,2 @@
 # Timesheet-tracker
-DevSecOps Concept applicable
+Using DevSecOps Concept
