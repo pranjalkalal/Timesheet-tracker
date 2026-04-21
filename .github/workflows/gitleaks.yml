@@ -3,18 +3,11 @@ name: gitleaks
 on:
   push:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
-  scan:
+  gitleaks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: gitleaks/gitleaks-action@v2
         with:
-          fetch-depth: 0
-
-      - name: Run Gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        with:
-          args: detect --redact --no-banner
+          fail: true
