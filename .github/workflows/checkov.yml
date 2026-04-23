@@ -1,0 +1,21 @@
+name: Checkov
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run Checkov scan
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
+          framework: terraform # Optional: specify terraform, cloudformation, kubernetes, etc.
+          # soft_fail: true # Set to true if you don't want the build to fail on findings
