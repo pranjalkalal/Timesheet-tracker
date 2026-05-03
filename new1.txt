@@ -1,2 +1,3 @@
 verified email signature
 gitgaurdian check
+AWS_ACCESS_KEY_ID=AKIA1234567890ABCDEF
